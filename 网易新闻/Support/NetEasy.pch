@@ -1,0 +1,15 @@
+//
+//  NetEasy.pch
+//  网易新闻
+//
+//  Created by 颜仁浩 on 2019/11/14.
+//  Copyright © 2019 颜仁浩. All rights reserved.
+//
+
+#ifndef NetEasy_pch
+#define NetEasy_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* NetEasy_pch */
