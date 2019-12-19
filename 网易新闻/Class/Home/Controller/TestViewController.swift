@@ -24,6 +24,7 @@ class TestViewController: JieBaseViewController {
         tableView.register(SpecialExtraTableViewCell.self, forCellReuseIdentifier: "SpecialExtraTableViewCell")
         tableView.register(SportFirstCell.self, forCellReuseIdentifier: "SportFirstCell")
         tableView.register(VideoCell.self, forCellReuseIdentifier: "VideoCell")
+        tableView.register(JokeTextCell.self, forCellReuseIdentifier: "JokeTextCell")
         return tableView
     }()
     
@@ -48,7 +49,7 @@ extension TestViewController {
 
 extension TestViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,8 +85,12 @@ extension TestViewController : UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SportFirstCell", for: indexPath) as! SportFirstCell
             cell.selectionStyle = .none
             return cell
-        } else {
+        } else if (indexPath.row == 8) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoCell
+            cell.selectionStyle = .none
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "JokeTextCell", for: indexPath) as! JokeTextCell
             cell.selectionStyle = .none
             return cell
         }
@@ -108,9 +113,16 @@ extension TestViewController : UITableViewDelegate, UITableViewDataSource {
             return 285
         } else if indexPath.row == 7 {
             return 360
-        } else {
+        } else if (indexPath.row == 8) {
             return 264
+        } else {
+            return 64
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let testVC = TestViewController()
+        navigationController?.pushViewController(testVC, animated: true)
     }
     
 }

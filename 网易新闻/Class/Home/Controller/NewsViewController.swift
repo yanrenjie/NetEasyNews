@@ -100,4 +100,12 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource {
         }
         return 0
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = NewsDetailViewController()
+        let model = newsViewModel.newsModelArray[indexPath.row]
+        detailVC.doc_id = model.docid
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }

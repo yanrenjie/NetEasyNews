@@ -78,6 +78,7 @@ class NewsOneImageCell: UITableViewCell {
     lazy var cellImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .systemPink
+        imageView.kf.setImage(with: URL(string: "http://crawl.ws.126.net/d0910f433f0e46ac8af36ad732ca143d~990x1041.webp"))
         return imageView
     }()
     

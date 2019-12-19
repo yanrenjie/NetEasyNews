@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-网易新闻/Pods-网易新闻-resources.sh
+${PODS_ROOT}/BMPlayer/Source/Pod_Asset_BMPlayer.xcassets
 ${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle

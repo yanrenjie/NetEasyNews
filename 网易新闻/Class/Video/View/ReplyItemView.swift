@@ -39,7 +39,7 @@ class ReplyItemView: UIView {
         super.init(frame: frame)
     }
     
-    init(frame: CGRect, direction: ReplyNumberDirection, font: UIFont) {
+    init(frame: CGRect, direction: ReplyNumberDirection = .right, font: UIFont = .systemFont(ofSize: 8)) {
         super.init(frame: frame)
         self.direction = direction
         self.font = font

@@ -10,21 +10,57 @@ import UIKit
 
 class JokeViewController: JieBaseViewController {
 
+    lazy var jokeViewModel : NewsViewModel = NewsViewModel()
+    
+    lazy var tableView : UITableView = {[weak self] in
+        let tableView = UITableView(frame: CGRect.zero, style: .plain)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorStyle = .none
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
+        tableView.register(JokeTextCell.self, forCellReuseIdentifier: "JokeTextCell")
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUI()
+        
+        jokeViewModel.loadJokeData {[weak self] in
+            self!.tableView.reloadData()
+        }
+    }
 
-        // Do any additional setup after loading the view.
+}
+
+
+extension JokeViewController {
+    func setupUI() {
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalTo(UIEdgeInsets.zero)
+        }
+    }
+}
+
+
+extension JokeViewController : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return jokeViewModel.jokeModelArray.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "JokeTextCell", for: indexPath) as! JokeTextCell
+        cell.selectionStyle = .none
+        cell.jokeModel = jokeViewModel.jokeModelArray[indexPath.row]
+        return cell
     }
-    */
-
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let testVC = TestViewController()
+        navigationController?.pushViewController(testVC, animated: true)
+    }
 }

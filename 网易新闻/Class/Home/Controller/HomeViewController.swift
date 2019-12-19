@@ -12,7 +12,7 @@ class HomeViewController: JieBaseViewController {
      let titles : [String] = ["测试", "头条", "要闻", "娱乐", "体育", "财经", "军事", "科技", "手机", "数码", "时尚", "游戏", "教育", "健康", "旅游", "视频", "直播", "段子", "汽车"]
     
      lazy var multiTitleView : JieMultiTitleView = {[weak self] in
-        let titleView = JieMultiTitleView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 50), titles: self!.titles)
+        let titleView = JieMultiTitleView(frame: CGRect(x: 0, y: kHeightNavigation, width: Int(ScreenWidth), height: 50), titles: self!.titles)
         titleView.backgroundColor = .white
         titleView.delegate = self
         return titleView
@@ -47,7 +47,7 @@ class HomeViewController: JieBaseViewController {
             index = index + 1
         }
         
-        let contentView = JieMultiContentView(frame: CGRect(x: 0, y: 50.0, width: ScreenWidth, height: ScreenHeight - 83.0 - 50.0 - 88.0), childVCs: childVCs, parentVC: self!)
+        let contentView = JieMultiContentView(frame: CGRect(x: 0, y: CGFloat(50 + kHeightNavigation), width: CGFloat(ScreenWidth), height: CGFloat(ScreenHeight - 83 - 50 - 88)), childVCs: childVCs, parentVC: self!)
         contentView.delegate = self
         
         return contentView
@@ -55,19 +55,47 @@ class HomeViewController: JieBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "home_navigation_background_image"), for: .default)
+        // 未做自定义导航栏时候的设置
+        // navigationController?.navigationBar.setBackgroundImage(UIImage(named: "home_navigation_background_image"), for: .default)
 
         setupUI()
-    }
         
+    }
+
+    func jieNavigationBarBackgroundImage(navigationBar: JieNavigationBar) -> UIImage {
+        return UIImage(named: "home_navigation_background_image")!
+    }
+    
+    // 左边按钮
+    func jieNavigationBarLeftButtonImage(leftButton: UIButton?, navigationBar: JieNavigationBar) -> UIImage {
+        return UIImage(named: "home_logo")!
+    }
+    
+    // 中间搜索框
+    func jieNavigationBarTitleView(navigationBar: JieNavigationBar) -> UIView {
+        let titleView = HomeNavigationSearchView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 44))
+        return titleView
+    }
+    
+    func jieNavigationBarRightButtonImage(rightButton: UIButton?, navigationBar: JieNavigationBar) -> UIImage {
+        return UIImage(named: "home_hot")!
+    }
+    
+    func leftButtonEvent(sender: UIButton, navigationBar: JieNavigationBar) {
+        print(#function)
+    }
+    
+    func rightButtonEvent(sender: UIButton, navigationBar: JieNavigationBar) {
+        print(#function)
+    }
 }
 
 
 extension HomeViewController {
     
     fileprivate func setupUI() {
-        // 设置导航了
-        setupNavigationUI()
+        // 设置导航了（未做自定义导航栏时的设置）
+        // setupNavigationUI()
         
         // 滚动标题栏
         view.addSubview(multiTitleView)

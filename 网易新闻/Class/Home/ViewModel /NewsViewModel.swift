@@ -12,6 +12,8 @@ import SwiftyJSON
 
 class NewsViewModel {
     lazy var newsModelArray : [NewsModel] = []
+    lazy var videoModelArray : [VideoModel] = []
+    lazy var jokeModelArray : [JokeModel] = []
     
     /// 请求要闻数据
     func loadHomeNewsData(_ callback : @escaping () -> ()) {
@@ -155,6 +157,82 @@ class NewsViewModel {
             for item in list! {
                 let news = NewsModel.deserialize(from: item.dictionary)
                 self.newsModelArray.append(news!)
+            }
+            
+            callback()
+        }
+    }
+    
+    
+    func loadHomeVideoData(_ callback : @escaping () -> ()) -> Void {
+        let url = BaseUrl + Interface_Video
+        Alamofire.request(url).responseString { (responseData) in
+            guard responseData.result.isSuccess else {
+                // 提示网络请求错误信息
+                return
+            }
+            
+            guard responseData.result.value != nil else {
+                // 返回数据为空
+                return
+            }
+            
+            var artiList = responseData.result.value! as NSString
+            artiList = artiList.replacingOccurrences(of: "videoList(", with: "") as NSString
+            artiList = artiList.replacingCharacters(in: NSRange(location: artiList.length - 1, length: 1), with: "") as NSString
+            
+            let jsonString = JSON(artiList).rawString()
+            let jsonData = jsonString?.data(using: String.Encoding.utf8)
+            
+            let json = JSON(jsonData as Any)
+            let list = json["Video_Recom"].array
+            guard list?.count != 0 else {
+                // 数据为空
+                return
+            }
+            
+            
+            for item in list! {
+                let news = VideoModel.deserialize(from: item.dictionary)
+                self.videoModelArray.append(news!)
+            }
+            
+            callback()
+        }
+    }
+    
+    
+    func loadJokeData(_ callback : @escaping () -> ()) -> Void {
+        let url = BaseUrl + Interface_Joke
+        Alamofire.request(url).responseString { (responseData) in
+            guard responseData.result.isSuccess else {
+                // 提示网络请求错误信息
+                return
+            }
+            
+            guard responseData.result.value != nil else {
+                // 返回数据为空
+                return
+            }
+            
+            var artiList = responseData.result.value! as NSString
+            artiList = artiList.replacingOccurrences(of: "joke0(", with: "") as NSString
+            artiList = artiList.replacingCharacters(in: NSRange(location: artiList.length - 1, length: 1), with: "") as NSString
+            
+            let jsonString = JSON(artiList).rawString()
+            let jsonData = jsonString?.data(using: String.Encoding.utf8)
+            
+            let json = JSON(jsonData as Any)
+            let list = json["段子"].array
+            guard list?.count != 0 else {
+                // 数据为空
+                return
+            }
+            
+            
+            for item in list! {
+                let news = JokeModel.deserialize(from: item.dictionary)
+                self.jokeModelArray.append(news!)
             }
             
             callback()

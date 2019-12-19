@@ -8,12 +8,31 @@
 
 import UIKit
 
-class JieBaseViewController: UIViewController {
+let setupScrollViewDispatchOnce : () = {
+    if #available(iOS 11, *) {
+        UIScrollView.appearance(whenContainedInInstancesOf: [JieNavBaseViewController.self])
+    }
+}()
+
+class JieBaseViewController: JieNavBaseViewController {
     open var titleString : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 13, *) {
+            view.backgroundColor = .systemGroupedBackground
+        } else {
+            view.backgroundColor = .groupTableViewBackground
+        }
+        if #available(iOS 11, *) {
+            setupScrollViewDispatchOnce
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
     }
     
+    deinit {
+        print("deinit ----->   \(self.classForCoder)")
+    }
 }
