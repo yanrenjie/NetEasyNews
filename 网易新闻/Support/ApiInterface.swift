@@ -60,7 +60,9 @@ let Interface_Video = "/touch/nc/api/video/recommend/Video_Recom/0-10.do?callbac
 let Interface_Live = "http://data.live.126.net/livechannel/previewlist.json"
 
 /// 段子
-let Interface_Joke = "/touch/jsonp/joke/chanListNews/T1419316284722/2/0-10.html?callback=joke0"
+let Interface_Joke_Trailing = "-10.html?callback=joke0"
+let Interface_Joke_Leading = "/touch/jsonp/joke/chanListNews/T1419316284722/2/"
+
 
 /// 汽车
 let Interface_Car = "http://c.m.163.com/nc/auto/list/5bmz6aG25bGx/0-20.html "

@@ -44,13 +44,13 @@ class JokeReplyInCellView: UIView {
 
 extension JokeReplyInCellView {
     func setupUI() {
-        userNameLabel.snp.makeConstraints { (make) in
-            make.left.bottom.top.equalTo(0)
-        }
-        
         replyContentLabel.snp.makeConstraints { (make) in
             make.top.right.bottom.equalTo(0)
             make.left.equalTo(userNameLabel.snp.right).offset(5)
+        }
+        
+        userNameLabel.snp.makeConstraints { (make) in
+            make.left.bottom.top.equalTo(0)
         }
     }
 }

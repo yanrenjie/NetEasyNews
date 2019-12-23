@@ -1,6 +1,7 @@
 platform :ios, '10.0'
 
-#source 'https://github.com/CocoaPods/Specs.git'
+use_modular_headers!
+
 target '网易新闻' do
 
 # 刷新
@@ -13,7 +14,7 @@ pod 'Alamofire'
 pod 'Kingfisher'
 
 #.webp格式图片价值
-pod 'KingfisherWebP', '~> 0.7.0'
+pod 'KingfisherWebP'
 
 #自动布局
 pod 'SnapKit'

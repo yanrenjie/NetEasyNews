@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import HandyJSON
 
 class NewsViewModel {
     lazy var newsModelArray : [NewsModel] = []
@@ -202,8 +203,10 @@ class NewsViewModel {
     }
     
     
-    func loadJokeData(_ callback : @escaping () -> ()) -> Void {
-        let url = BaseUrl + Interface_Joke
+    func loadJokeData(_ isRefresh : Bool, _ pageIndex : Int, _ callback : @escaping () -> ()) -> Void {
+        let url = BaseUrl + Interface_Joke_Leading + "\(pageIndex)" + Interface_Joke_Trailing
+        print("------------------------------>    " + url)
+        
         Alamofire.request(url).responseString { (responseData) in
             guard responseData.result.isSuccess else {
                 // 提示网络请求错误信息
@@ -229,9 +232,11 @@ class NewsViewModel {
                 return
             }
             
-            
+            if isRefresh {
+                self.jokeModelArray.removeAll()
+            }
             for item in list! {
-                let news = JokeModel.deserialize(from: item.dictionary)
+                let news = JSONDeserializer<JokeModel>.deserializeFrom(json: item.rawString())
                 self.jokeModelArray.append(news!)
             }
             

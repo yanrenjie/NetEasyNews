@@ -1,0 +1,6 @@
+module KingfisherWebP {
+  umbrella header "KingfisherWebP-umbrella.h"
+
+  export *
+  module * { export * }
+}

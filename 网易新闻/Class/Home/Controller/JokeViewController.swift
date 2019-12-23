@@ -9,6 +9,7 @@
 import UIKit
 
 class JokeViewController: JieBaseViewController {
+    var pageIndex = 10
 
     lazy var jokeViewModel : NewsViewModel = NewsViewModel()
     
@@ -20,6 +21,20 @@ class JokeViewController: JieBaseViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
         tableView.register(JokeTextCell.self, forCellReuseIdentifier: "JokeTextCell")
+        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            self?.pageIndex = 10
+            self?.jokeViewModel.loadJokeData(true, self!.pageIndex, {
+                self?.tableView.mj_header?.endRefreshing()
+                self?.tableView.reloadData()
+            })
+        })
+        tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
+            self?.pageIndex += 10
+            self?.jokeViewModel.loadJokeData(false, self!.pageIndex, {
+                self?.tableView.mj_footer?.endRefreshing()
+                self?.tableView.reloadData()
+            })
+        })
         return tableView
     }()
     
@@ -28,9 +43,9 @@ class JokeViewController: JieBaseViewController {
         
         setupUI()
         
-        jokeViewModel.loadJokeData {[weak self] in
+        jokeViewModel.loadJokeData(true, pageIndex, {[weak self] in
             self!.tableView.reloadData()
-        }
+        })
     }
 
 }
