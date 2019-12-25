@@ -142,6 +142,7 @@ struct VideoData : HandyJSON {
     var play_info : [VideoPlayInfo]?
     var sd_size : Int?
     var ratio : Int?
+    var sd_preload_size : Int?
 }
 
 struct VideoPlayInfo : HandyJSON {

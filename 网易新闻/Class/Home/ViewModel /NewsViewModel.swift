@@ -127,8 +127,8 @@ class NewsViewModel {
     }
     
     
-    func loadSportData(_ callback : @escaping () -> ()) -> Void {
-        let url = BaseUrl + Interface_Sport
+    func loadSportData(_ isRefresh : Bool, _ pageIndex : Int, _ callback : @escaping () -> ()) -> Void {
+        let url = BaseUrl + Interface_Sport_Leading + "\(pageIndex)" + Interface_Trailing
         Alamofire.request(url).responseString { (responseData) in
             guard responseData.result.isSuccess else {
                 // 提示网络请求错误信息
@@ -154,7 +154,9 @@ class NewsViewModel {
                 return
             }
             
-            
+            if isRefresh {
+                self.newsModelArray.removeAll()
+            }
             for item in list! {
                 let news = NewsModel.deserialize(from: item.dictionary)
                 self.newsModelArray.append(news!)

@@ -64,11 +64,18 @@ class JokeTextCell: UITableViewCell {
             jokeImageView.isHidden = true
             videoView.isHidden = true
             if jokeModel?.skipType == "joke" && jokeModel?.imgsrc != ""  {
-                let pixels = (jokeModel!.pixel! as NSString).components(separatedBy: "*")
-                let ratio =  (pixels.last! as NSString).floatValue / (pixels.first! as NSString).floatValue
+                var pixels : [String] = []
+                if jokeModel?.pixel == "0*0" {
+                    pixels = ((jokeModel!.imgsrc as NSString).components(separatedBy: "~").last?.components(separatedBy: ".").first?.components(separatedBy: "x"))!
+                } else {
+                    pixels = (jokeModel!.pixel! as NSString).components(separatedBy: "*")
+                }
+                let ratio =  CGFloat((pixels.last! as NSString).floatValue / (pixels.first! as NSString).floatValue)
+                
                 jokeImageView.kf.setImage(with: URL(string: (jokeModel?.imgsrc)!), options: [.processor(WebPProcessor.default), .cacheSerializer(WebPSerializer.default)])
                 
                 jokeImageView.isHidden = false
+
                 jokeImageView.snp.remakeConstraints { (make) in
                     make.top.equalTo(jokeContentLabel.snp.bottom).offset(15)
                     make.left.equalTo(10)
@@ -102,10 +109,11 @@ class JokeTextCell: UITableViewCell {
                     }
                 }
             } else if jokeModel?.skipType == "videodetail" {
+                if jokeModel?.videoinfo?.videoRatio == 0 {
+                    print("**********----------------->   === " + "\(String(describing: jokeModel?.videoinfo?.videoRatio))")
+                }
                 /// 放视频
-                print("----------------->   === " + "\(String(describing: jokeModel?.videoinfo?.videoRatio))")
                 videoView.isHidden = false
-                
                 videoView.jokeImageView.kf.setImage(with: URL(string: jokeModel!.videoinfo!.cover!))
                 videoView.snp.remakeConstraints { (make) in
                     make.top.equalTo(jokeContentLabel.snp.bottom).offset(15)

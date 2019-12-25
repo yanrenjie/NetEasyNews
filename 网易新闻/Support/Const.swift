@@ -8,9 +8,9 @@
 
 import UIKit
 
-let ScreenWidth = UIScreen.main.bounds.size.width
+let ScreenWidth : CGFloat = UIScreen.main.bounds.size.width
 
-let ScreenHeight = UIScreen.main.bounds.size.height
+let ScreenHeight : CGFloat = UIScreen.main.bounds.size.height
 
 let isPad = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
 

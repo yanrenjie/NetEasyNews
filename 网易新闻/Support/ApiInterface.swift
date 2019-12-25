@@ -21,7 +21,8 @@ let Interface_News = "/touch/reconstruct/article/list/BBM54PGAwangning/0-20.html
 let Interface_Entertainment = "/touch/reconstruct/article/list/BA10TA81wangning/0-20.html"
 
 /// 体育
-let Interface_Sport = "/touch/reconstruct/article/list/BA8E6OEOwangning/0-20.html"
+let Interface_Sport_Leading = "/touch/reconstruct/article/list/BA8E6OEOwangning/"
+let Interface_Trailing = "-20.html"
 
 /// 财经
 let Interface_Bussiness = "/touch/reconstruct/article/list/BA8EE5GMwangning/0-20.html"

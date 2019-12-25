@@ -9,6 +9,8 @@
 import UIKit
 
 class SportViewController: JieBaseViewController {
+    
+    var pageIndex = 10
     lazy var newsModel : NewsViewModel = NewsViewModel()
 
     lazy var tableView : UITableView = {[weak self] in
@@ -21,6 +23,20 @@ class SportViewController: JieBaseViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         tableView.register(SportFirstCell.self, forCellReuseIdentifier: "SportFirstCell")
         tableView.register(NewsHomeOneBigImageCell.self, forCellReuseIdentifier: "NewsHomeOneBigImageCell")
+        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            self?.pageIndex = 10
+            self?.newsModel.loadSportData(true, self!.pageIndex, {
+                self?.tableView.mj_header?.endRefreshing()
+                self?.tableView.reloadData()
+            })
+        })
+        tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
+            self?.pageIndex += 10
+            self?.newsModel.loadSportData(false, self!.pageIndex, {
+                self?.tableView.mj_footer?.endRefreshing()
+                self?.tableView.reloadData()
+            })
+        })
         return tableView
     }()
     
@@ -29,8 +45,8 @@ class SportViewController: JieBaseViewController {
 
         setupUI()
         
-        newsModel.loadSportData {[weak self] in
-            self!.tableView.reloadData()
+        newsModel.loadSportData(true, pageIndex) {
+            self.tableView.reloadData()
         }
     }
 
