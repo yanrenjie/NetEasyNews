@@ -37,9 +37,12 @@ class NewsDetailViewModel {
             
             let model = JSONDeserializer<NewsDetailModel>.deserializeFrom(json: dic_json_string)
             self.detailModel = model
-            
-            print(responseData)
-            callback()
+            if model != nil {
+                print(responseData)
+                callback()
+            } else {
+                debugPrint("解析数据异常")
+            }
         }
     }
 }

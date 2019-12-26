@@ -15,9 +15,7 @@
 		3100A5DA2386BCD700BBC37D /* NewsHomeOneBigImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3100A5D92386BCD700BBC37D /* NewsHomeOneBigImageCell.swift */; };
 		310483F623B23E720016C7D9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310483F523B23E720016C7D9 /* String+Extension.swift */; };
 		3118339023AB50B4007CF217 /* JokeReplyTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118338F23AB50B4007CF217 /* JokeReplyTabView.swift */; };
-		3118339223AB5E01007CF217 /* JokeTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118339123AB5E01007CF217 /* JokeTextCell.swift */; };
-		3118339423AB5E1D007CF217 /* JokeImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118339323AB5E1D007CF217 /* JokeImageCell.swift */; };
-		3118339623AB5E2B007CF217 /* JokeVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118339523AB5E2B007CF217 /* JokeVideoCell.swift */; };
+		3118339223AB5E01007CF217 /* JokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118339123AB5E01007CF217 /* JokeCell.swift */; };
 		311B8EE4237CF8DA0001CC41 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311B8EE3237CF8DA0001CC41 /* NewsViewModel.swift */; };
 		311B8EE8237D05820001CC41 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311B8EE7237D05820001CC41 /* NewsModel.swift */; };
 		31458BD823A10DD100DDD691 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31458BD723A10DD100DDD691 /* NewsDetailViewController.swift */; };
@@ -30,6 +28,7 @@
 		3147D6F823A2108900A87712 /* NewsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3147D6F723A2108900A87712 /* NewsDetailViewModel.swift */; };
 		3149CF23238CDC4E00BAD935 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3149CF22238CDC4E00BAD935 /* Tools.swift */; };
 		314B088123B3686500EAFF7A /* DetailCommentReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B088023B3686500EAFF7A /* DetailCommentReplyView.swift */; };
+		314B088323B371FB00EAFF7A /* DetailContentTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314B088223B371FB00EAFF7A /* DetailContentTopView.swift */; };
 		314FC6EC23A231BE00A4B744 /* JieNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FC6EB23A231BE00A4B744 /* JieNavigationBar.swift */; };
 		314FE37323876E9900BE9612 /* YaoWenFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FE37223876E9900BE9612 /* YaoWenFirstCell.swift */; };
 		314FE37523878A2B00BE9612 /* SportsTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FE37423878A2B00BE9612 /* SportsTeamView.swift */; };
@@ -95,9 +94,7 @@
 		3100A5D92386BCD700BBC37D /* NewsHomeOneBigImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHomeOneBigImageCell.swift; sourceTree = "<group>"; };
 		310483F523B23E720016C7D9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		3118338F23AB50B4007CF217 /* JokeReplyTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeReplyTabView.swift; sourceTree = "<group>"; };
-		3118339123AB5E01007CF217 /* JokeTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeTextCell.swift; sourceTree = "<group>"; };
-		3118339323AB5E1D007CF217 /* JokeImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeImageCell.swift; sourceTree = "<group>"; };
-		3118339523AB5E2B007CF217 /* JokeVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeVideoCell.swift; sourceTree = "<group>"; };
+		3118339123AB5E01007CF217 /* JokeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeCell.swift; sourceTree = "<group>"; };
 		311B8EE3237CF8DA0001CC41 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		311B8EE5237CF9280001CC41 /* NetEasy.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetEasy.pch; sourceTree = "<group>"; };
 		311B8EE7237D05820001CC41 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
@@ -111,6 +108,7 @@
 		3147D6F723A2108900A87712 /* NewsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewModel.swift; sourceTree = "<group>"; };
 		3149CF22238CDC4E00BAD935 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		314B088023B3686500EAFF7A /* DetailCommentReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCommentReplyView.swift; sourceTree = "<group>"; };
+		314B088223B371FB00EAFF7A /* DetailContentTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentTopView.swift; sourceTree = "<group>"; };
 		314D2CA9238E521700959959 /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		314D2CAB238E523B00959959 /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		314FC6EB23A231BE00A4B744 /* JieNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JieNavigationBar.swift; sourceTree = "<group>"; };
@@ -228,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				314B088023B3686500EAFF7A /* DetailCommentReplyView.swift */,
+				314B088223B371FB00EAFF7A /* DetailContentTopView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -376,9 +375,7 @@
 				3118338F23AB50B4007CF217 /* JokeReplyTabView.swift */,
 				31EFD0FF23AB82490032A218 /* JokeReplyInCellView.swift */,
 				31E6E62A23AC80730035AEFF /* JokeVideoInCellView.swift */,
-				3118339123AB5E01007CF217 /* JokeTextCell.swift */,
-				3118339323AB5E1D007CF217 /* JokeImageCell.swift */,
-				3118339523AB5E2B007CF217 /* JokeVideoCell.swift */,
+				3118339123AB5E01007CF217 /* JokeCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -718,7 +715,6 @@
 				3165AA06237C2DC1009966A3 /* JieNavigationController.swift in Sources */,
 				314B088123B3686500EAFF7A /* DetailCommentReplyView.swift in Sources */,
 				3165AA22237C5F5A009966A3 /* GameViewController.swift in Sources */,
-				3118339423AB5E1D007CF217 /* JokeImageCell.swift in Sources */,
 				3165A9FC237BF01D009966A3 /* UIView+Extension.swift in Sources */,
 				3165A9F8237BA76C009966A3 /* ApiInterface.swift in Sources */,
 				3165AA2A237C5F8A009966A3 /* HomeVideoViewController.swift in Sources */,
@@ -736,18 +732,18 @@
 				31470D022384E09100EEFE9B /* JokeViewController.swift in Sources */,
 				31E32BD423AA235C006275E2 /* NewsDetailModel.swift in Sources */,
 				31F239EE2382AE9600E1D434 /* UIImage+Extension.swift in Sources */,
-				3118339623AB5E2B007CF217 /* JokeVideoCell.swift in Sources */,
 				31470D002384E03400EEFE9B /* HomeHeadLineViewController.swift in Sources */,
 				3100A5D423862A9300BBC37D /* SpecialExtraCollectionViewCell.swift in Sources */,
 				314FE3812387EE0300BE9612 /* VideoCell.swift in Sources */,
 				3165AA2E237C5FA7009966A3 /* CategoryViewController.swift in Sources */,
-				3118339223AB5E01007CF217 /* JokeTextCell.swift in Sources */,
+				3118339223AB5E01007CF217 /* JokeCell.swift in Sources */,
 				314FE37723878DFD00BE9612 /* CompeteView.swift in Sources */,
 				31581C2D238383810099442F /* CarouselView.swift in Sources */,
 				3100A5D82386B45B00BBC37D /* NewsHomeFirstCell.swift in Sources */,
 				314FE37D2387D63D00BE9612 /* TestViewController.swift in Sources */,
 				3149CF23238CDC4E00BAD935 /* Tools.swift in Sources */,
 				311B8EE4237CF8DA0001CC41 /* NewsViewModel.swift in Sources */,
+				314B088323B371FB00EAFF7A /* DetailContentTopView.swift in Sources */,
 				31470D042384E09C00EEFE9B /* CarViewController.swift in Sources */,
 				3165A9C7237B9DCE009966A3 /* SceneDelegate.swift in Sources */,
 				3165A9F6237BA645009966A3 /* Const.swift in Sources */,

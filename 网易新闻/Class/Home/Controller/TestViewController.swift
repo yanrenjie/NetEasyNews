@@ -24,7 +24,7 @@ class TestViewController: JieBaseViewController {
         tableView.register(SpecialExtraTableViewCell.self, forCellReuseIdentifier: "SpecialExtraTableViewCell")
         tableView.register(SportFirstCell.self, forCellReuseIdentifier: "SportFirstCell")
         tableView.register(VideoCell.self, forCellReuseIdentifier: "VideoCell")
-        tableView.register(JokeTextCell.self, forCellReuseIdentifier: "JokeTextCell")
+        tableView.register(JokeCell.self, forCellReuseIdentifier: "JokeCell")
         return tableView
     }()
     
@@ -90,7 +90,7 @@ extension TestViewController : UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "JokeTextCell", for: indexPath) as! JokeTextCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "JokeCell", for: indexPath) as! JokeCell
             cell.selectionStyle = .none
             return cell
         }

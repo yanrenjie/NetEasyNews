@@ -102,7 +102,10 @@ struct NewsDetailRelativeSys : HandyJSON {
 
 struct NewsDetailLink : HandyJSON {
     var ref : String?
-    var urlMacroReplace : Bool = false
-    var href : String?
+    var urlMacroReplace : Bool = false // URL是否采用宏替代
+    var href : String? // 跳网页
     var title : String?
+    var digest : String? // 用人工智能挑战足彩，盈利更轻松
+    var imgsrc : String?
+    var type : String? = "" // linkCard 卡片消息
 }

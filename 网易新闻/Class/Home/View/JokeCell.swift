@@ -1,5 +1,5 @@
 //
-//  JokeTextCell.swift
+//  JokeCell.swift
 //  网易新闻
 //
 //  Created by 颜仁浩 on 2019/12/19.
@@ -9,7 +9,7 @@
 import UIKit
 import KingfisherWebP
 
-class JokeTextCell: UITableViewCell {
+class JokeCell: UITableViewCell {
     
     lazy var jokeContentLabel : UILabel = {
         let jokeLabel = UILabel()
@@ -210,7 +210,7 @@ class JokeTextCell: UITableViewCell {
 }
 
 
-extension JokeTextCell {
+extension JokeCell {
     func setupUI() {
         // 文本内容
         jokeContentLabel.snp.makeConstraints { (make) in

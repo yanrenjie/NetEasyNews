@@ -20,7 +20,7 @@ class JokeViewController: JieBaseViewController {
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
-        tableView.register(JokeTextCell.self, forCellReuseIdentifier: "JokeTextCell")
+        tableView.register(JokeCell.self, forCellReuseIdentifier: "JokeCell")
         tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self?.pageIndex = 10
             self?.jokeViewModel.loadJokeData(true, self!.pageIndex, {
@@ -67,7 +67,7 @@ extension JokeViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "JokeTextCell", for: indexPath) as! JokeTextCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "JokeCell", for: indexPath) as! JokeCell
         cell.selectionStyle = .none
         cell.jokeModel = jokeViewModel.jokeModelArray[indexPath.row]
         return cell
