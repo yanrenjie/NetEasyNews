@@ -11,14 +11,6 @@ import WebKit
 
 
 class LiveViewController: JieBaseViewController {
-
-    lazy var webView: WKWebView = {
-            let web = WKWebView()
-            web.navigationDelegate = self
-            web.scrollView.isScrollEnabled = false
-            web.scrollView.bounces = false
-            return web
-        }()
     
     lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -36,6 +28,14 @@ class LiveViewController: JieBaseViewController {
         return label
     }()
 
+    lazy var webView: WKWebView = {
+        let web = WKWebView()
+        web.navigationDelegate = self
+        web.scrollView.isScrollEnabled = false
+        web.scrollView.bounces = false
+        return web
+    }()
+    
     lazy var tableView : UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .plain)
         tableView.bounces = false

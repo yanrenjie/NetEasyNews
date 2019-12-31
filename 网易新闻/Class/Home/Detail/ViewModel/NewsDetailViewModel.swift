@@ -14,6 +14,7 @@ import SwiftyJSON
 
 class NewsDetailViewModel {
     lazy var detailModel : NewsDetailModel? = NewsDetailModel()
+    lazy var detailCommentModel : NewsDetailCommentBodyModel? = NewsDetailCommentBodyModel()
     
     func loadNewsDetailInfoWithDocId(_ doc_id : String, _ callback : @escaping () -> ()) {
         let url = interface_new_detail(doc_id: doc_id)
@@ -26,6 +27,10 @@ class NewsDetailViewModel {
             
             guard responseData.result.value != nil else {
                 // 返回数据为空
+                return
+            }
+            
+            guard responseData.response?.statusCode == 200 else {
                 return
             }
             
@@ -43,6 +48,33 @@ class NewsDetailViewModel {
             } else {
                 debugPrint("解析数据异常")
             }
+        }
+    }
+    
+    
+    func loadNewsDetailCommentWithDocId(_ doc_id : String, _ callback : @escaping () -> ()) {
+        let url = interface_comment_detail(doc_id: doc_id)
+        
+        Alamofire.request(url).responseJSON { (responseData) in
+            guard responseData.result.isSuccess else {
+                // 提示网络请求错误信息
+                return
+            }
+            
+            guard responseData.result.value != nil else {
+                // 返回数据为空
+                return
+            }
+            
+            guard responseData.response?.statusCode == 200 else {
+                return
+            }
+            
+            let value = responseData.result.value
+            let result = NewsDetailCommentBodyModel.deserialize(from: value as? Dictionary)
+            self.detailCommentModel = result
+            
+            callback()
         }
     }
 }

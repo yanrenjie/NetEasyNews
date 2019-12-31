@@ -11,9 +11,6 @@ import HandyJSON
 
 struct NewsDetailModel : HandyJSON {
     var template : String = ""
-    var img : [NewsDetailImg]?
-    var video : [NewsDetailVideo]?
-    var sourceinfo : NewsDetailSourceInfo?
     var shareLink : String = ""
     var source : String = ""
     // 点赞
@@ -22,9 +19,7 @@ struct NewsDetailModel : HandyJSON {
     var body : String = ""
     var picnews : Bool = false
     var advertiseType : String = ""
-    var relative_sys : [NewsDetailRelativeSys]?
     var shareDigest : String = ""
-    var relative_res : [NewsDetailRelativeSys]?
     var docid : String = ""
     // 评论
     var replyCount : Int = 0
@@ -36,6 +31,26 @@ struct NewsDetailModel : HandyJSON {
     var spinfo : [NewsDetailSPInfo]?
     // 广告链接
     var link : [NewsDetailLink]?
+    // 需要替换的图片
+    var img : [NewsDetailImg]?
+    // 需要替换的视频
+    var video : [NewsDetailVideo]?
+    // 媒体信息
+    var sourceinfo : NewsDetailSourceInfo?
+    // 详情相关
+    var relative_sys : [NewsDetailRelativeSys]?
+    var relative_res : [NewsDetailRelativeSys]?
+    // 将详情中的相关报道信息合并一起
+    var relativeArray : [NewsDetailRelativeSys]? {
+        var array : [NewsDetailRelativeSys] = []
+        if relative_res != nil {
+            array = array + relative_res!
+        }
+        if relative_sys != nil {
+            array = array + relative_sys!
+        }
+        return array
+    }
 }
 
 struct NewsDetailImg : HandyJSON {

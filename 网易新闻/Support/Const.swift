@@ -30,11 +30,11 @@ let kIS_IPHONE_Xs_Max =  (UIScreen.instancesRespond(to: #selector(getter: UIScre
 
 let kIS_IPHONE_X_ALL = kIS_IPHONE_X || kIS_IPHONE_Xr || kIS_IPHONE_Xs_Max
 
-let kHeightNavigation = kIS_IPHONE_X_ALL ? 88 : 64
-let kHeightTabBar = kIS_IPHONE_X_ALL ? 83 : 49
-let kHeightStatusBar = kIS_IPHONE_X_ALL ? 44 : 20
-let kHeightSafeBottom = kIS_IPHONE_X_ALL ? 34 : 0
-let kHeightNavigationContentBar = 44
+let kHeightNavigation : CGFloat = kIS_IPHONE_X_ALL ? 88 : 64
+let kHeightTabBar : CGFloat = kIS_IPHONE_X_ALL ? 83 : 49
+let kHeightStatusBar : CGFloat = kIS_IPHONE_X_ALL ? 44 : 20
+let kHeightSafeBottom : CGFloat = kIS_IPHONE_X_ALL ? 34 : 0
+let kHeightNavigationContentBar : CGFloat = 44
 
 func RandomColor() -> UIColor {
     let color = UIColor(displayP3Red: CGFloat(arc4random_uniform(256)) / 255.0, green: CGFloat(arc4random_uniform(256)) / 255.0, blue: CGFloat(arc4random_uniform(256)) / 255.0, alpha: 1)

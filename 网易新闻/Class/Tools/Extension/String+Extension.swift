@@ -11,12 +11,8 @@ import Foundation
 extension String {
     var htmlAttributedString: NSAttributedString? {
         do {
-            return try NSAttributedString(data: Data(utf8),
-                                          options: [.documentType: NSAttributedString.DocumentType.html,
-                                                    .characterEncoding: String.Encoding.utf8.rawValue],
-                                          documentAttributes: nil)
+            return try NSAttributedString(data: Data(utf8), options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
         } catch {
-            print("error: ", error)
             return nil
         }
     }
@@ -55,8 +51,8 @@ extension String {
         var html = self as NSString
         let replaceString = getHTMLSpInfo(spinfo)
         html = html.replacingOccurrences(of: spinfo.ref!, with: replaceString) as NSString
-        html = html.replacingOccurrences(of: "<a href=", with: "<p></p><a href=") as NSString
-//        html = html.replacingOccurrences(of: "</a>", with: "</a></p>") as NSString
+        html = html.replacingOccurrences(of: "<a href=", with: "</br><a href=") as NSString
+        html = html.replacingOccurrences(of: "</a>", with: "</br></a>") as NSString
         return html as String
     }
     
@@ -85,7 +81,7 @@ extension String {
     func getHTMLSpInfo(_ spinfo : NewsDetailSPInfo) -> String {
         var sptype : String = ""
         if spinfo.sptype != nil {
-            sptype = "<img src=\"https://m.qpic.cn/psc?/V11iSfEF2vUsai/zkoezU7GGNbZGOF.DPhgQUKXGFjvJSmSUIZaCdc.*TACLh7LO1z79q7brvqmAJL1Rk2fgd1rjZR352uMqTxcOvriBhM2KBV23geChq7xXtU!/anull&bo=DwAPAA8ADwADCSw!&rf=photolist&t=5\"  style=\"height:13px width:13px display:inline-block\"><span style=\"font-size:18px\"> \(String(describing: spinfo.sptype!))</span>"
+            sptype = "<img src=\"https://m.qpic.cn/psc?/V11iSfEF2vUsai/zkoezU7GGNbZGOF.DPhgQUKXGFjvJSmSUIZaCdc.*TACLh7LO1z79q7brvqmAJL1Rk2fgd1rjZR352uMqTxcOvriBhM2KBV23geChq7xXtU!/anull&bo=DwAPAA8ADwADCSw!&rf=photolist&t=5\"  style=\"height:10px width:10px display:inline-block\"><span style=\"font-size:20px\"> \(String(describing: spinfo.sptype!))</span>"
         }
         if sptype != "" {
             sptype = sptype + spinfo.spcontent!

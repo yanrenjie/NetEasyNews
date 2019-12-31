@@ -12,7 +12,7 @@ class HomeViewController: JieBaseViewController {
      let titles : [String] = ["测试", "头条", "要闻", "娱乐", "体育", "财经", "军事", "科技", "手机", "数码", "时尚", "游戏", "教育", "健康", "旅游", "视频", "直播", "段子", "汽车"]
     
      lazy var multiTitleView : JieMultiTitleView = {[weak self] in
-        let titleView = JieMultiTitleView(frame: CGRect(x: 0, y: kHeightNavigation, width: Int(ScreenWidth), height: 50), titles: self!.titles)
+        let titleView = JieMultiTitleView(frame: CGRect(x: 0, y: Int(kHeightNavigation), width: Int(ScreenWidth), height: 50), titles: self!.titles)
         titleView.backgroundColor = .white
         titleView.delegate = self
         return titleView
