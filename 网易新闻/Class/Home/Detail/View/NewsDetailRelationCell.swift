@@ -34,6 +34,19 @@ class NewsDetailRelationCell: UITableViewCell {
         return button
     }()
     
+    // MARK: 赋值
+    var cellModel : NewsDetailRelativeSys? {
+        didSet {
+            newsTitleLabel.text = cellModel?.title
+            newsImageView.kf.setImage(with: URL(string: cellModel!.imgsrc!))
+            if cellModel?.type == "video" {
+                playButton.isHidden = false
+            } else {
+                playButton.isHidden = true
+            }
+        }
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

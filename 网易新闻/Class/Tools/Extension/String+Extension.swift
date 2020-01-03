@@ -108,6 +108,13 @@ extension String {
         return height
     }
     
+    // MARK: 获取文本宽度
+    func getTextWidth(_ fontSize : CGFloat, _ fitSize : CGSize) -> CGFloat {
+        let _nsstring = self as NSString
+        let width = _nsstring.boundingRect(with: fitSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize)], context: nil).size.width
+        return width
+    }
+    
     // MARK: 去除文本中的空格
     func removeWhiteSpace() -> String {
         var originString = self as NSString

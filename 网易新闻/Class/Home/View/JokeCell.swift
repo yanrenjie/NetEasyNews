@@ -67,6 +67,8 @@ class JokeCell: UITableViewCell {
                 var pixels : [String] = []
                 if jokeModel?.pixel == "0*0" {
                     pixels = ((jokeModel!.imgsrc as NSString).components(separatedBy: "~").last?.components(separatedBy: ".").first?.components(separatedBy: "x"))!
+                } else if jokeModel?.pixel == "" {
+                    pixels = ["1", "1"]
                 } else {
                     pixels = (jokeModel!.pixel! as NSString).components(separatedBy: "*")
                 }

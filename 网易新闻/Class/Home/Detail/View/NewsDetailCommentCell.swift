@@ -24,7 +24,8 @@ class NewsDetailCommentCell: UITableViewCell {
     // VIP用户
     lazy var vipImageView : UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .orange
+        imageView.image = UIImage(named: "user_vip")
+        imageView.isHidden = true
         self.contentView.addSubview(imageView)
         return imageView
     }()
@@ -134,6 +135,20 @@ class NewsDetailCommentCell: UITableViewCell {
         return button
     }()
     
+    // MARK: 赋值
+    var cellModel : HotPostModel? {
+        didSet {
+            userAvatarImageView.kf.setImage(with: URL(string: cellModel!.utimg ?? ""), placeholder: UIImage(named: "avatar_placeHolder"))
+            userNicknameLabel.text = cellModel?.n
+            commentContentLabel.text = cellModel?.b
+            if cellModel?.vip != nil {
+                vipImageView.isHidden = false
+            } else {
+                vipImageView.isHidden = true
+            }
+        }
+    }
+    
     // MARK: 初始化
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -157,8 +172,9 @@ extension NewsDetailCommentCell {
         }
         
         vipImageView.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalTo(userAvatarImageView)
-            make.height.equalTo(5)
+            make.left.right.equalTo(userAvatarImageView)
+            make.height.equalTo(15)
+            make.bottom.equalTo(userAvatarImageView.snp.bottom).offset(3)
         }
         
         userNicknameLabel.snp.makeConstraints { (make) in
@@ -186,7 +202,7 @@ extension NewsDetailCommentCell {
         deleteButton.snp.makeConstraints { (make) in
             make.centerY.equalTo(userNicknameLabel)
             make.width.height.equalTo(20)
-            make.right.equalTo(likeView.snp.left).offset(-30)
+            make.right.equalTo(likeView.snp.left).offset(-20)
         }
         
         likeView.snp.makeConstraints { (make) in

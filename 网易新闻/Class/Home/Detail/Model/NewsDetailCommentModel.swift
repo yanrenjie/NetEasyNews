@@ -48,6 +48,7 @@ struct HotPostModel : HandyJSON {
     var fi : String?
     var ip : String?
     var l : String?
+    var n : String? = "火星网友"
     var p : String?
     var pi : String?
     var rp : String?

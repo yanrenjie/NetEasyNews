@@ -85,6 +85,13 @@ class NewsDetailViewController: JieBaseViewController {
         return webView
     }()
     
+    // 分享
+    lazy var shareView : NewsDetailShareView = {
+        let share = NewsDetailShareView()
+        contentView.addSubview(share)
+        return share
+    }()
+    
     // 评论信息或者可能存在的相关其他信息UITableView进行展示
     lazy var tableView : UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .plain)
@@ -242,7 +249,13 @@ extension NewsDetailViewController {
             make.width.equalTo(ScreenWidth)
             make.height.equalTo(ScreenHeight - textHeight - 60 - (kHeightNavigation) - (kHeightTabBar))
             make.top.equalTo(topView.snp.bottom).offset(15)
+            make.bottom.equalTo(shareView.snp.top)
+        }
+        
+        shareView.snp.makeConstraints { (make) in
+            make.left.right.equalTo(0)
             make.bottom.equalTo(tableView.snp.top)
+            make.height.equalTo(80)
         }
         
         tableView.snp.makeConstraints { (make) in
@@ -276,6 +289,10 @@ extension NewsDetailViewController : WKNavigationDelegate {
                 }
             }
         }
+        
+        webView.evaluateJavaScript("document.documentElement.style.webkitTouchCallout='none'", completionHandler: nil)
+                    
+        webView.evaluateJavaScript("document.documentElement.style.webkitUserSelect='none'", completionHandler: nil)
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -347,9 +364,11 @@ extension NewsDetailViewController : UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsDetailCommentCell", for: indexPath) as! NewsDetailCommentCell
+            cell.cellModel = newsDetailViewModel?.detailCommentModel?.hotPosts![indexPath.row].floor_one
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsDetailRelationCell", for: indexPath) as! NewsDetailRelationCell
+            cell.cellModel = newsDetailViewModel?.detailModel?.relativeArray![indexPath.row]
             return cell
         }
     }
@@ -423,5 +442,14 @@ extension NewsDetailViewController : UITableViewDelegate, UITableViewDataSource 
             return 60
         }
         return 0.001
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            let detailVC = NewsDetailViewController()
+            let model = newsDetailViewModel?.detailModel?.relativeArray![indexPath.row]
+            detailVC.doc_id = model?.docID
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
     }
 }

@@ -55,6 +55,12 @@ class NewsDetailViewModel {
     func loadNewsDetailCommentWithDocId(_ doc_id : String, _ callback : @escaping () -> ()) {
         let url = interface_comment_detail(doc_id: doc_id)
         
+        Alamofire.request(url).responseString { (responseData) in
+            print("<------------------->\n")
+            print(responseData.result.value)
+            print("<------------------->\n")
+        }
+        
         Alamofire.request(url).responseJSON { (responseData) in
             guard responseData.result.isSuccess else {
                 // 提示网络请求错误信息
