@@ -20,7 +20,7 @@ class JieNavBaseViewController: UIViewController {
         
         if jie_navgationBar == nil && parent?.isKind(of: UINavigationController.self) ?? false {
             let navigationBar = JieNavigationBar(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 0))
-            self.view.addSubview(navigationBar)
+            view.addSubview(navigationBar)
             navigationBar.dataSource = self
             navigationBar.jieDelegate = self
             navigationBar.isHidden = !navUIBaseViewControllerIsNeedNavBar(navUIBaseViewController: self)

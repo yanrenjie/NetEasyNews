@@ -24,5 +24,23 @@ class Tools {
         }
         return timeFormat
     }
+    
+    
+    static func getKeyWindow() -> UIWindow? {
+        var window : UIWindow? = nil
+        if #available(iOS 13, *) {
+            for item in UIApplication.shared.connectedScenes {
+                if item.activationState == .foregroundActive {
+                    let scenes = item as! UIWindowScene
+                    window = scenes.windows.first
+                    break
+                }
+            }
+        } else {
+            window = UIApplication.shared.keyWindow
+        }
+        
+        return window
+    }
 }
 

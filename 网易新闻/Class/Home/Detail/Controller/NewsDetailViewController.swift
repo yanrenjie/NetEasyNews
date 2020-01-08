@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import SnapKit
 
 class NewsDetailViewController: JieBaseViewController {
     // 数据源
@@ -20,6 +21,8 @@ class NewsDetailViewController: JieBaseViewController {
     var htmlString : String = ""
     // tableView的高度
     var height_tableView : CGFloat = 0
+    // 当前键盘高度
+    var currentKeyBoardHeight : CGFloat = 0
     
     // MARK: 懒加载
     
@@ -105,10 +108,32 @@ class NewsDetailViewController: JieBaseViewController {
     }()
     
     // 底部评论框
-    lazy var replyInputView : DetailCommentReplyView = {
+    lazy var replyView : DetailCommentReplyView = {
         let replyView = DetailCommentReplyView()
+        replyView.delegate = self
         view.addSubview(replyView)
         return replyView
+    }()
+
+    // 弹出评论输入框的黑色背景图
+    lazy var lightBlackView : UIView = {
+        let blackView = UIView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight))
+        blackView.isHidden = true
+        blackView.isUserInteractionEnabled = true
+        blackView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        view.addSubview(blackView)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(removeBlackBackgroundView))
+        blackView.addGestureRecognizer(tap)
+        return blackView
+    }()
+    
+    // 弹出评论输入框
+    lazy var replyInputView : ReplyView = {
+        let inputView = ReplyView(frame: CGRect(x: 0, y: ScreenHeight, width: ScreenWidth, height: 106))
+        inputView.delegate = self
+        lightBlackView.addSubview(inputView)
+        return inputView
     }()
 
     // MARK: viewDidLoad方法
@@ -118,6 +143,10 @@ class NewsDetailViewController: JieBaseViewController {
         if #available(iOS 11, *) {
             scrollView.contentInsetAdjustmentBehavior = .never
         }
+        
+        // 键盘通知
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHidden(notification:)), name: UIResponder.keyboardDidHideNotification, object: nil)
         
         // 获取button的文本内容的大小，设置navigationCommentLButton的宽度
         let size = navigationCommentLButton.intrinsicContentSize
@@ -223,6 +252,15 @@ class NewsDetailViewController: JieBaseViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        view.bringSubviewToFront(lightBlackView)
+    }
+    
 }
 
 
@@ -264,7 +302,7 @@ extension NewsDetailViewController {
             make.width.equalTo(ScreenWidth)
         }
         
-        replyInputView.snp.makeConstraints { (make) in
+        replyView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(0)
             make.height.equalTo(kHeightTabBar)
             make.top.equalTo(scrollView.snp.bottom)
@@ -276,6 +314,33 @@ extension NewsDetailViewController {
         topView.titleView.text = newsDetailViewModel?.detailModel?.title
         
         tableView.reloadData()
+    }
+    
+    // MARK: 监听键盘弹出，收起，以及键盘高度的变化
+    @objc func keyboardWillShow(notification : Notification) {
+        lightBlackView.isHidden = false
+        view.bringSubviewToFront(lightBlackView)
+
+        // 获取键盘的最终的高度
+        let endFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let y = endFrame.size.height
+        currentKeyBoardHeight = y
+        UIView.animate(withDuration: 0.25) {
+            self.replyInputView.frame = CGRect(x: 0, y: ScreenHeight - 106 - y, width: ScreenWidth, height: 106)
+        }
+    }
+    
+    @objc func keyboardWillHidden(notification : Notification) {
+        lightBlackView.isHidden = true
+    }
+    
+    // 点击评论输入框黑色背景的时候，回收键盘
+    @objc func removeBlackBackgroundView() {
+        replyInputView.sendtTextView.resignFirstResponder()
+        UIView.animate(withDuration: 0.25) {
+            self.replyInputView.frame = CGRect(x: 0, y: ScreenHeight, width: ScreenWidth, height: 106)
+            self.lightBlackView.isHidden = true
+        }
     }
 }
 
@@ -451,5 +516,19 @@ extension NewsDetailViewController : UITableViewDelegate, UITableViewDataSource 
             detailVC.doc_id = model?.docID
             navigationController?.pushViewController(detailVC, animated: true)
         }
+    }
+}
+
+
+extension NewsDetailViewController : DetailCommentReplyViewDelegate {
+    func tapTabInputViewAction() {
+        replyInputView.sendtTextView.becomeFirstResponder()
+    }
+}
+
+
+extension NewsDetailViewController : ReplyViewDelegate {
+    func textSizeDidChange(replayView: ReplyView, textHeight: CGFloat) {
+        self.replyInputView.frame = CGRect(x: 0, y: ScreenHeight - self.currentKeyBoardHeight - textHeight, width: ScreenWidth, height: textHeight)
     }
 }

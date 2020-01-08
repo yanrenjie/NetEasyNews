@@ -1,0 +1,89 @@
+{
+    "section1" : [
+        {
+            "maintitle" : "我的关注",
+            "subtitle" : "用户/圈子",
+            "flagRedDoc" : 0,
+            "cellType" : 0
+        },
+        {
+            "maintitle" : "我的消息",
+            "subtitle" : "回复/赞/同志",
+            "flagRedDoc" : 1,
+            "cellType" : 0
+        },
+        {
+            "maintitle" : "我的已购买",
+            "subtitle" : "购买的课程/直播",
+            "flagRedDoc" : 0,
+            "cellType" : 0
+        },
+        {
+            "maintitle" : "金币商城",
+            "subtitle" : "置年货兑春联，速来！",
+            "flagRedDoc" : 1,
+            "cellType" : 0
+        },
+        {
+            "maintitle" : "京东提供",
+            "subtitle" : "新人领188元红包",
+            "flagRedDoc" : 0,
+            "cellType" : 0
+        },
+        {
+            "maintitle" : "扫一扫",
+            "subtitle" : "  ",
+            "flagRedDoc" : 0,
+            "cellType" : 0
+        },
+        {
+            "maintitle" : "堆个三三过新年",
+            "subtitle" : "激萌雪人小羊羔三三来袭",
+            "flagRedDoc" : 0,
+            "cellType" : 1
+        },
+        {
+            "maintitle" : "易览天下",
+            "subtitle" : "三分钟了解天下事",
+            "flagRedDoc" : 0,
+            "cellType" : 0
+        },
+        {
+            "maintitle" : "用户鉴贴",
+            "subtitle" : "邀你鉴定跟帖质量",
+            "flagRedDoc" : 0,
+            "cellType" : 0
+        },
+        {
+            "maintitle" : "我的钱包",
+            "subtitle" : "  ",
+            "flagRedDoc" : 0,
+            "cellType" : 0
+        }
+    ],
+    "section2" : [
+        {
+            "maintitle" : "免流量看新闻",
+            "subtitle" : "    ",
+            "flagRedDoc" : 0,
+            "cellType" : 0
+        },
+        {
+            "maintitle" : "设置",
+            "subtitle" : "支持调整列表字号啦",
+            "flagRedDoc" : 0,
+            "cellType" : 0
+        }
+    ],
+    "header" : {
+        "activitytitle" : "动态",
+        "activitycount" : 67,
+        "posttitle" : "跟帖",
+        "postcount" : 23,
+        "savetitle" : "收藏",
+        "savecount" : 34,
+        "historytitle" : "历史",
+        "historycount" : 765
+    }
+}
+

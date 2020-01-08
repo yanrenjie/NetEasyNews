@@ -8,7 +8,12 @@
 
 import UIKit
 
+protocol DetailCommentReplyViewDelegate {
+    func tapTabInputViewAction() -> Void
+}
+
 class DetailCommentReplyView: UIView {
+    var delegate : DetailCommentReplyViewDelegate?
 
     lazy var inputLabel : UILabel = {
         let label = UILabel()
@@ -18,7 +23,11 @@ class DetailCommentReplyView: UIView {
         label.backgroundColor = UIColor.RGBColor(r: 235, g: 235, b: 235)
         label.layer.cornerRadius = 15
         label.clipsToBounds = true
+        label.isUserInteractionEnabled = true
         addSubview(label)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(sendPostAction))
+        label.addGestureRecognizer(tap)
         return label
     }()
     
@@ -103,5 +112,10 @@ extension DetailCommentReplyView {
             make.height.equalTo(24)
             make.right.equalTo(-20)
         }
+    }
+    
+    
+    @objc func sendPostAction() {
+        self.delegate?.tapTabInputViewAction()
     }
 }
