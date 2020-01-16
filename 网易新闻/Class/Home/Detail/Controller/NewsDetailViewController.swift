@@ -522,6 +522,8 @@ extension NewsDetailViewController : UITableViewDelegate, UITableViewDataSource 
 
 extension NewsDetailViewController : DetailCommentReplyViewDelegate {
     func tapTabInputViewAction() {
+        // TODO: 模拟器特别说明
+        // FIXME: 如果没弹出键盘，那是因为模拟器的原因，真机测试会弹出键盘，或者command + shift + k
         replyInputView.sendtTextView.becomeFirstResponder()
     }
 }

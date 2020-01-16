@@ -31,6 +31,7 @@ class ReplyView: UIView {
     lazy var sendButton : UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("发送", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 15)
         button.layer.cornerRadius = 15
         button.layer.masksToBounds = true
         button.setTitleColor(.white, for: .normal)

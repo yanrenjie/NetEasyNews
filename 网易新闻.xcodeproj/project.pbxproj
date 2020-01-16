@@ -22,6 +22,12 @@
 		3118339223AB5E01007CF217 /* JokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3118339123AB5E01007CF217 /* JokeCell.swift */; };
 		311B8EE4237CF8DA0001CC41 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311B8EE3237CF8DA0001CC41 /* NewsViewModel.swift */; };
 		311B8EE8237D05820001CC41 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311B8EE7237D05820001CC41 /* NewsModel.swift */; };
+		311C78B623CEE1AE00F47FC4 /* MineCenterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311C78B523CEE1AE00F47FC4 /* MineCenterTableView.swift */; };
+		311C78B823CEE61C00F47FC4 /* SegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311C78B723CEE61C00F47FC4 /* SegmentViewController.swift */; };
+		311C78BA23CEF5DD00F47FC4 /* MineActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311C78B923CEF5DD00F47FC4 /* MineActivityViewController.swift */; };
+		311C78BC23CEF5EA00F47FC4 /* MinePostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311C78BB23CEF5EA00F47FC4 /* MinePostsViewController.swift */; };
+		311C78BE23CF5E1E00F47FC4 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311C78BD23CF5E1E00F47FC4 /* SegmentView.swift */; };
+		311C78C023CF5ED100F47FC4 /* SegmentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311C78BF23CF5ED100F47FC4 /* SegmentHeaderView.swift */; };
 		3129982123C2D7C40031D6BF /* ReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3129982023C2D7C40031D6BF /* ReplyView.swift */; };
 		3142736B23C56840006AF132 /* MineNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3142736923C56840006AF132 /* MineNormalCell.swift */; };
 		3142736C23C56840006AF132 /* MineNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3142736A23C56840006AF132 /* MineNormalCell.xib */; };
@@ -93,6 +99,7 @@
 		31E32BD423AA235C006275E2 /* NewsDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E32BD323AA235C006275E2 /* NewsDetailModel.swift */; };
 		31E32BD623AA3186006275E2 /* JokeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E32BD523AA3186006275E2 /* JokeModel.swift */; };
 		31E6E62B23AC80730035AEFF /* JokeVideoInCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E6E62A23AC80730035AEFF /* JokeVideoInCellView.swift */; };
+		31E77DBB23D06AD000E33106 /* MineSmallVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E77DBA23D06AD000E33106 /* MineSmallVideoViewController.swift */; };
 		31EDD8E123C49777005FE1A8 /* MineDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EDD8E023C49777005FE1A8 /* MineDataModel.swift */; };
 		31EDD8E323C49F20005FE1A8 /* mineData.json in Resources */ = {isa = PBXBuildFile; fileRef = 31EDD8E223C49F20005FE1A8 /* mineData.json */; };
 		31EDD8E523C49F72005FE1A8 /* MineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EDD8E423C49F72005FE1A8 /* MineViewModel.swift */; };
@@ -119,6 +126,12 @@
 		311B8EE3237CF8DA0001CC41 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		311B8EE5237CF9280001CC41 /* NetEasy.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetEasy.pch; sourceTree = "<group>"; };
 		311B8EE7237D05820001CC41 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		311C78B523CEE1AE00F47FC4 /* MineCenterTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCenterTableView.swift; sourceTree = "<group>"; };
+		311C78B723CEE61C00F47FC4 /* SegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentViewController.swift; sourceTree = "<group>"; };
+		311C78B923CEF5DD00F47FC4 /* MineActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineActivityViewController.swift; sourceTree = "<group>"; };
+		311C78BB23CEF5EA00F47FC4 /* MinePostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinePostsViewController.swift; sourceTree = "<group>"; };
+		311C78BD23CF5E1E00F47FC4 /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
+		311C78BF23CF5ED100F47FC4 /* SegmentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentHeaderView.swift; sourceTree = "<group>"; };
 		3129982023C2D7C40031D6BF /* ReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyView.swift; sourceTree = "<group>"; };
 		3142736923C56840006AF132 /* MineNormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineNormalCell.swift; sourceTree = "<group>"; };
 		3142736A23C56840006AF132 /* MineNormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineNormalCell.xib; sourceTree = "<group>"; };
@@ -195,6 +208,7 @@
 		31E32BD323AA235C006275E2 /* NewsDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailModel.swift; sourceTree = "<group>"; };
 		31E32BD523AA3186006275E2 /* JokeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeModel.swift; sourceTree = "<group>"; };
 		31E6E62A23AC80730035AEFF /* JokeVideoInCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeVideoInCellView.swift; sourceTree = "<group>"; };
+		31E77DBA23D06AD000E33106 /* MineSmallVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSmallVideoViewController.swift; sourceTree = "<group>"; };
 		31EDD8E023C49777005FE1A8 /* MineDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineDataModel.swift; sourceTree = "<group>"; };
 		31EDD8E223C49F20005FE1A8 /* mineData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mineData.json; sourceTree = "<group>"; };
 		31EDD8E423C49F72005FE1A8 /* MineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewModel.swift; sourceTree = "<group>"; };
@@ -509,6 +523,9 @@
 			children = (
 				3165AA0D237C2DFF009966A3 /* MineViewController.swift */,
 				3142737923C5BD07006AF132 /* PersonalCenterViewController.swift */,
+				311C78B923CEF5DD00F47FC4 /* MineActivityViewController.swift */,
+				311C78BB23CEF5EA00F47FC4 /* MinePostsViewController.swift */,
+				31E77DBA23D06AD000E33106 /* MineSmallVideoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -539,6 +556,8 @@
 				3142737323C581A0006AF132 /* MineHeaderView.xib */,
 				3142737523C58909006AF132 /* MineHeaderItemView.swift */,
 				3142737723C58916006AF132 /* MineHeaderItemView.xib */,
+				311C78BF23CF5ED100F47FC4 /* SegmentHeaderView.swift */,
+				311C78BD23CF5E1E00F47FC4 /* SegmentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -599,6 +618,7 @@
 				3165A9F9237BB9DB009966A3 /* JieMultiTitleView.swift */,
 				3165A9FF237C013E009966A3 /* JieMultiContentView.swift */,
 				314FC6EB23A231BE00A4B744 /* JieNavigationBar.swift */,
+				311C78B523CEE1AE00F47FC4 /* MineCenterTableView.swift */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -610,6 +630,7 @@
 				3165AA05237C2DC1009966A3 /* JieNavigationController.swift */,
 				31F4A1D023A8C0A60035DB58 /* JieNavBaseViewController.swift */,
 				3165AA01237C2D92009966A3 /* JieBaseViewController.swift */,
+				311C78B723CEE61C00F47FC4 /* SegmentViewController.swift */,
 				31F4A1CF23A8B8F30035DB58 /* 网易新闻-Bridging-Header.h */,
 			);
 			path = BaseController;
@@ -643,6 +664,7 @@
 				3165A9BE237B9DCE009966A3 /* Frameworks */,
 				3165A9BF237B9DCE009966A3 /* Resources */,
 				2FFFD24DEDCFCDA3E23F15F7 /* [CP] Copy Pods Resources */,
+				3142737B23C6410C006AF132 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -721,6 +743,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-网易新闻/Pods-网易新闻-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3142737B23C6410C006AF132 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nTAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
+		};
 		353C2B76C9BA8ABE80CDB88A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -750,6 +789,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				311C78B823CEE61C00F47FC4 /* SegmentViewController.swift in Sources */,
+				311C78BC23CEF5EA00F47FC4 /* MinePostsViewController.swift in Sources */,
 				3165AA16237C5EED009966A3 /* BusinessViewController.swift in Sources */,
 				3165AA26237C5F73009966A3 /* HealthViewController.swift in Sources */,
 				3142736B23C56840006AF132 /* MineNormalCell.swift in Sources */,
@@ -757,6 +798,7 @@
 				314FE37F2387E28000BE9612 /* VideoModel.swift in Sources */,
 				314FC6EC23A231BE00A4B744 /* JieNavigationBar.swift in Sources */,
 				3165AA28237C5F81009966A3 /* TravelViewController.swift in Sources */,
+				31E77DBB23D06AD000E33106 /* MineSmallVideoViewController.swift in Sources */,
 				3165AA1C237C5F3C009966A3 /* CellPhoneViewController.swift in Sources */,
 				3147D6F823A2108900A87712 /* NewsDetailViewModel.swift in Sources */,
 				3165AA2C237C5F93009966A3 /* LiveViewController.swift in Sources */,
@@ -777,9 +819,11 @@
 				3165AA2A237C5F8A009966A3 /* HomeVideoViewController.swift in Sources */,
 				3165A9C5237B9DCE009966A3 /* AppDelegate.swift in Sources */,
 				3165AA0A237C2DEB009966A3 /* VideoViewController.swift in Sources */,
+				311C78C023CF5ED100F47FC4 /* SegmentHeaderView.swift in Sources */,
 				3165AA1E237C5F46009966A3 /* DigitalViewController.swift in Sources */,
 				3165A9FA237BB9DB009966A3 /* JieMultiTitleView.swift in Sources */,
 				31470D062384E1B200EEFE9B /* NewsNoImageCell.swift in Sources */,
+				311C78BE23CF5E1E00F47FC4 /* SegmentView.swift in Sources */,
 				3165AA18237C5F27009966A3 /* MilitaryViewController.swift in Sources */,
 				3165AA02237C2D92009966A3 /* JieBaseViewController.swift in Sources */,
 				3165AA20237C5F52009966A3 /* FashionViewController.swift in Sources */,
@@ -816,6 +860,7 @@
 				31F4A1D123A8C0A60035DB58 /* JieNavBaseViewController.swift in Sources */,
 				3100A5D62386383500BBC37D /* Date+Extension.swift in Sources */,
 				3165AA24237C5F69009966A3 /* EducationViewController.swift in Sources */,
+				311C78B623CEE1AE00F47FC4 /* MineCenterTableView.swift in Sources */,
 				31EDD8E523C49F72005FE1A8 /* MineViewModel.swift in Sources */,
 				314FE3792387927B00BE9612 /* SportFirstCell.swift in Sources */,
 				314FE37523878A2B00BE9612 /* SportsTeamView.swift in Sources */,
@@ -834,6 +879,7 @@
 				314FE37323876E9900BE9612 /* YaoWenFirstCell.swift in Sources */,
 				3105893423B9CE7B00A3B733 /* NewsDetailNavigationSourceInfoView.swift in Sources */,
 				311B8EE8237D05820001CC41 /* NewsModel.swift in Sources */,
+				311C78BA23CEF5DD00F47FC4 /* MineActivityViewController.swift in Sources */,
 				3165AA1A237C5F31009966A3 /* TechnologyViewController.swift in Sources */,
 				3142737A23C5BD07006AF132 /* PersonalCenterViewController.swift in Sources */,
 			);
