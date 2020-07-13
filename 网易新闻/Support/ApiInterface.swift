@@ -25,7 +25,7 @@ let Interface_Sport_Leading = "/touch/reconstruct/article/list/BA8E6OEOwangning/
 let Interface_Trailing = "-20.html"
 
 /// 财经
-let Interface_Bussiness = "/touch/reconstruct/article/list/BA8EE5GMwangning/0-20.html"
+let Interface_Bussiness = "/touch/reconstruct/article/list/BA8EE5GMwangning/"
 
 /// 军事
 let Interface_Military = "/touch/reconstruct/article/list/BAI67OGGwangning/0-20.html"

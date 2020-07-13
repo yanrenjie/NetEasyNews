@@ -52,3 +52,16 @@ func RGBAColor(_ r : Int, _ g : Int, _ b : Int, _ alpha : CGFloat) -> UIColor {
     return color
 }
 
+func AdaptDarkMode(_ lightColor : UIColor, darkColor : UIColor) -> UIColor {
+    if #available(iOS 13.0, *) {
+        let color = UIColor.init { (collection : UITraitCollection) -> UIColor in
+            if collection.userInterfaceStyle == .dark {
+                return darkColor
+            }
+            return lightColor
+        }
+        return color
+    }
+    return lightColor
+}
+

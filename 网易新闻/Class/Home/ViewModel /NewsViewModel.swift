@@ -16,7 +16,7 @@ class NewsViewModel {
     lazy var videoModelArray : [VideoModel] = []
     lazy var jokeModelArray : [JokeModel] = []
     
-    /// 请求要闻数据
+    //MARK: 请求要闻数据
     func loadHomeNewsData(_ callback : @escaping () -> ()) {
         let url = BaseUrl + Interface_News
         
@@ -56,7 +56,7 @@ class NewsViewModel {
     }
     
     
-    /// 请求头条数据
+    //MARK: 请求头条数据
     func loadHeadLineData(_ callback : @escaping () -> ()) -> Void {
         let url = Interface_HeadLine
         Alamofire.request(url).responseJSON { (responseData) in
@@ -88,7 +88,7 @@ class NewsViewModel {
     }
     
     
-    /// 请求娱乐数据
+    //MARK: 请求娱乐数据
     func loadEntertrainmentData(_ callback : @escaping () -> ()) -> Void {
         let url = BaseUrl + Interface_Entertainment
         Alamofire.request(url).responseString { (responseData) in
@@ -126,7 +126,7 @@ class NewsViewModel {
         }
     }
     
-    
+    //MARK: 请求加载体育数据
     func loadSportData(_ isRefresh : Bool, _ pageIndex : Int, _ callback : @escaping () -> ()) -> Void {
         let url = BaseUrl + Interface_Sport_Leading + "\(pageIndex)" + Interface_Trailing
         Alamofire.request(url).responseString { (responseData) in
@@ -166,7 +166,7 @@ class NewsViewModel {
         }
     }
     
-    
+    //MARK: 请求加载首页新闻数据
     func loadHomeVideoData(_ callback : @escaping () -> ()) -> Void {
         let url = BaseUrl + Interface_Video
         Alamofire.request(url).responseString { (responseData) in
@@ -204,7 +204,7 @@ class NewsViewModel {
         }
     }
     
-    
+    //MARK: 请求加载笑话数据
     func loadJokeData(_ isRefresh : Bool, _ pageIndex : Int, _ callback : @escaping () -> ()) -> Void {
         let url = BaseUrl + Interface_Joke_Leading + "\(pageIndex)" + Interface_Joke_Trailing
         print("------------------------------>    " + url)
@@ -240,6 +240,50 @@ class NewsViewModel {
             for item in list! {
                 let news = JSONDeserializer<JokeModel>.deserializeFrom(json: item.rawString())
                 self.jokeModelArray.append(news!)
+            }
+            
+            callback()
+        }
+    }
+    
+    //MARK: 请求加载商业页面的数据
+    func loadBusinessData(_ isRefresh : Bool, _ pageIdx : Int, _ callback : @escaping () -> ()) -> Void {
+        // 拼接请求地址0-20.html
+        let startIdx : Int = pageIdx - 20
+        let url = BaseUrl + Interface_Bussiness + "\(startIdx)-" + "\(pageIdx).html"
+        print(url)
+        Alamofire.request(url).responseString { (responseData) in
+            guard responseData.result.isSuccess else {
+                // 提示网络请求错误信息
+                return
+            }
+            
+            guard responseData.result.value != nil else {
+                // 返回数据为空
+                return
+            }
+            
+            var artiList = responseData.result.value! as NSString
+            artiList = artiList.replacingOccurrences(of: "artiList(", with: "") as NSString
+            artiList = artiList.replacingCharacters(in: NSRange(location: artiList.length - 1, length: 1), with: "") as NSString
+            
+            let jsonString = JSON(artiList).rawString()
+            let jsonData = jsonString?.data(using: String.Encoding.utf8)
+            
+            let json = JSON(jsonData as Any)
+            let list = json["BA8EE5GMwangning"].array
+            guard list?.count != 0 else {
+                // 数据为空
+                return
+            }
+            
+            if isRefresh && pageIdx == 20 {
+                self.newsModelArray.removeAll()
+            }
+            
+            for item in list! {
+                let news = NewsModel.deserialize(from: item.dictionary)
+                self.newsModelArray.append(news!)
             }
             
             callback()

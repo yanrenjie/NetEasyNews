@@ -403,10 +403,13 @@ extension NewsDetailViewController : UIScrollViewDelegate {
             }
             
             let size = navigationCommentLButton.intrinsicContentSize
-            UIView.animate(withDuration: 1) {
-                self.navigationCommentLButton.snp.updateConstraints { (make) in
-                    make.width.equalTo(size.width + 20)
-                }
+            self.navigationCommentLButton.snp.updateConstraints { (make) in
+                make.width.equalTo(size.width + 20)
+            }
+            self.navigationCommentLButton.needsUpdateConstraints()
+            self.navigationCommentLButton.updateFocusIfNeeded()
+            UIView.animate(withDuration: 0.5) {
+                self.view.layoutIfNeeded()
             }
         }
     }

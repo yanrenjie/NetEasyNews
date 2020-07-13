@@ -30,6 +30,8 @@ class JieBaseViewController: JieNavBaseViewController {
         } else {
             automaticallyAdjustsScrollViewInsets = false
         }
+        
+        print("titleString   =======    \(titleString)")
     }
     
     deinit {
